@@ -1,6 +1,13 @@
 hdf-tutorial
 ============
 
+Notes on running test examples:
+
+They are tested purely against the software stack yielded by:
+`load-future-modules run`
+
+and the Makefile is specific to the `h5pfc` compiler (parallel).
+ 
 Tutorial files are Copyright HDF Group.
 
 HDF5 (Hierarchical Data Format 5) Software Library and Utilities 
