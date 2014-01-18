@@ -1,0 +1,25 @@
+#!/bin/bash
+#**********************************************************
+#* File:load-critcel-future-intel-modules.sh
+#* 
+#* Desc:Force the loading of future intel modules required by Critcel
+#*      This 'clears' the existing modules
+#*
+#* Date:Sun 05 Jan 2014 
+#*
+#* Author: Kevin Manalo
+#* Email:  kmanalo@gmail.com
+
+# drop all current modules
+
+if [ $# -eq 0 ] ; then
+    echo usage: load-modules.sh run
+
+else
+    export LOADEDMODULES=""
+    export _LMFILES_=""
+    source ./hdf5-modules 
+
+    echo The following modules are loaded for using Critcel:
+    module list
+fi
