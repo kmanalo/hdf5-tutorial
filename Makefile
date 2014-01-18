@@ -5,6 +5,7 @@ all:
 	@echo build with \'make build\'
 	@echo run with \'make run\'
 	@echo clean with \'make clean\'
+
 build: $(patsubst %.f90, %.out, $(wildcard *.f90))
 
 # Rule how to create arbitary .out files. 
@@ -12,9 +13,9 @@ build: $(patsubst %.f90, %.out, $(wildcard *.f90))
 # include folder...  Then the command to create the .out file, probably you want
 # to add further options to the g++ call.
 
-run: *.out
-	./$?
-	@echo 
+run: 
+	for i in $(shell ls *.out); do echo running $$i ...; ./$$i; done
+
 %.out: %.f90 Makefile
 	/usr/local/packages/hdf5/1.8.9/mvapich2-1.9rc1/pgi-12.10/bin/h5pfc $< -o $@ 
 	@echo
