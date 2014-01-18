@@ -12,9 +12,9 @@ build: $(patsubst %.f90, %.out, $(wildcard *.f90))
 # include folder...  Then the command to create the .out file, probably you want
 # to add further options to the g++ call.
 
-run: Makefile
-	echo %@
-	@echo
+run: *.out
+	./$?
+	@echo 
 %.out: %.f90 Makefile
 	/usr/local/packages/hdf5/1.8.9/mvapich2-1.9rc1/pgi-12.10/bin/h5pfc $< -o $@ 
 	@echo
