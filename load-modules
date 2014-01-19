@@ -18,7 +18,10 @@ if [ $# -eq 0 ] ; then
 else
     export LOADEDMODULES=""
     export _LMFILES_=""
-    source ./hdf5-modules 
+    # git rev-parse --show-toplevel - see
+    # http://stackoverflow.com/a/957978/992834
+    toplevel=$(git rev-parse --show-toplevel)
+    source $toplevel/hdf5-modules 
 
     echo The following modules are loaded for using Critcel:
     module list
